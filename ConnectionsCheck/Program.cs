@@ -84,7 +84,7 @@ void AnalyzeFile(string filePath)
         everythingIsFine = false;
 
         Console.WriteLine($"Файл: {filePath}");
-        Console.WriteLine($"Несовпадение в методе: {GetMethodName(filePath)}");
+        Console.WriteLine($"Несовпадение в классе: {GetClassName(filePath)}");
         Console.WriteLine($"Открытых соединений: {openCount}, Закрытых соединений: {closeCount}");
         Console.WriteLine("---------------------------------------------");
     }
@@ -94,12 +94,12 @@ void AnalyzeFile(string filePath)
     }
 }
 
-static string GetMethodName(string filePath)
+static string GetClassName(string filePath)
 {
-    // Пример: Извлекаем имя метода из пути файла
+    // Пример: Извлекаем имя класса из пути файла
     var parts = filePath.Split(Path.DirectorySeparatorChar);
     var fileName = parts[^1];
-    var methodName = fileName.Split('.')[0]; // Предполагаем, что имя файла = имя метода
+    var methodName = fileName.Split('.')[0]; // Предполагаем, что имя файла = имя класса
     return methodName;
 }
 
